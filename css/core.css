@@ -1,0 +1,81 @@
+/* =============== CORE RESET =============== */
+/* Modern reset (https://piccalil.li/blog/a-modern-css-reset/) */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+
+/* Remove list styles on ul, ol elements */
+ul[role='list'], ol[role='list'] { list-style: none; }
+
+/* Set core root defaults */
+html:focus-within { scroll-behavior: smooth; }
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Make images easier to work with */
+img, picture, svg, video {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button, textarea, select { font: inherit; }
+
+/* =============== CORE VARIABLES =============== */
+:root {
+    /* Spacing */
+    --space-unit: 1rem;
+    --space-xs: calc(var(--space-unit) * 0.5);
+    --space-sm: calc(var(--space-unit) * 0.75);
+    --space-md: var(--space-unit);
+    --space-lg: calc(var(--space-unit) * 1.5);
+    --space-xl: calc(var(--space-unit) * 2);
+    
+    /* Colors */
+    --clr-primary: #2563eb;
+    --clr-dark: #1e293b;
+    --clr-light: #f8fafc;
+    
+    /* Typography */
+    --ff-base: system-ui, -apple-system, sans-serif;
+    --ff-heading: var(--ff-base);
+    
+    /* Layout */
+    --max-width: 1200px;
+    --gutter: var(--space-md);
+}
+
+/* =============== CORE UTILITIES =============== */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.skip-link {
+    position: absolute;
+    top: var(--space-sm);
+    left: var(--space-sm);
+    z-index: 999;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--clr-dark);
+    color: white;
+    transform: translateY(-200%);
+    transition: transform 0.3s ease;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
